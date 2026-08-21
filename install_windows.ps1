@@ -1,71 +1,56 @@
 # ================================================================
-#  ROXX'S SLAVE — WINDOWS INSTALLER (PowerShell)
-#  Run in PowerShell as Administrator inside WSL2 or native
+#  ROXX'S SLAVE — WINDOWS INSTALLER (PowerShell Admin)
+#  Installs OpenCode + embeds all brain & skill files.
 # ================================================================
 
 Write-Host @"
- ██████╗  ██████╗ ██╗  ██╗██╗  ██╗███████╗    ███████╗██╗      █████╗ ██╗   ██╗███████╗
  ROXX'S SLAVE — WINDOWS INSTALLER
+ LOCKED. LOADED. UNCHAINED.
+ Installing OpenCode + Embedding all skills...
 "@ -ForegroundColor Red
 
-Write-Host "[!] Windows users: Install WSL2 first for best experience." -ForegroundColor Yellow
-Write-Host "    Run in PowerShell (Admin): wsl --install -d kali-linux" -ForegroundColor Cyan
-Write-Host "    Then run install.sh inside WSL2." -ForegroundColor Cyan
-Write-Host ""
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ConfigDir = "$HOME\.config\opencode"
+$BrainDir  = $HOME
 
-# Check if Chocolatey is installed
-if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
-    Write-Host "[+] Installing Chocolatey..." -ForegroundColor Green
-    Set-ExecutionPolicy Bypass -Scope Process -Force
-    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+# ── STEP 1: Install Node.js if missing ──────────────────────
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
+    Write-Host "[!] Node.js not found. Installing via winget..." -ForegroundColor Yellow
+    winget install OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements
+    $env:PATH = [System.Environment]::GetEnvironmentVariable("PATH","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("PATH","User")
 }
+Write-Host "[+] Node.js: $(node -v)" -ForegroundColor Green
 
-Write-Host "[+] Installing dependencies via Chocolatey..." -ForegroundColor Green
-choco install -y git nodejs golang python nmap curl wget jq
-
-Write-Host "[+] Installing Go tools..." -ForegroundColor Green
-$env:GOPATH = "$HOME\go"
-$env:PATH += ";$env:GOPATH\bin"
-
-$goTools = @(
-    "github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
-    "github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest",
-    "github.com/projectdiscovery/httpx/cmd/httpx@latest",
-    "github.com/ffuf/ffuf/v2@latest",
-    "github.com/tomnomnom/waybackurls@latest",
-    "github.com/tomnomnom/anew@latest",
-    "github.com/lc/gau/v2/cmd/gau@latest"
-)
-
-foreach ($tool in $goTools) {
-    $name = ($tool -split "/")[-1] -replace "@.*",""
-    Write-Host "[+] Installing $name..." -ForegroundColor Green
-    go install $tool 2>$null
-}
-
-Write-Host "[+] Installing OpenCode..." -ForegroundColor Green
+# ── STEP 2: Install OpenCode ────────────────────────────────
+Write-Host "[+] Installing OpenCode AI..." -ForegroundColor Green
 npm install -g opencode-ai
+Write-Host "[+] OpenCode installed ✅" -ForegroundColor Green
 
-Write-Host "[+] Copying config files..." -ForegroundColor Green
-$configDir = "$HOME\.config\opencode"
-New-Item -ItemType Directory -Force -Path $configDir | Out-Null
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-Copy-Item "$scriptDir\skills\*.md" $configDir -Force
-Copy-Item "$scriptDir\brain\CLAUDE.md" $HOME -Force
-Copy-Item "$scriptDir\brain\CLAUDE1.md" $HOME -Force
-Copy-Item "$scriptDir\brain\OC.md" $HOME -Force
+# ── STEP 3: Embed Brain + Skills ────────────────────────────
+Write-Host "[+] Embedding brain files..." -ForegroundColor Green
+New-Item -ItemType Directory -Force -Path $ConfigDir | Out-Null
 
-# Write config
+Copy-Item "$ScriptDir\brain\CLAUDE.md"  "$BrainDir\CLAUDE.md"  -Force
+Copy-Item "$ScriptDir\brain\CLAUDE1.md" "$BrainDir\CLAUDE1.md" -Force
+Copy-Item "$ScriptDir\brain\OC.md"      "$BrainDir\OC.md"      -Force
+
+Write-Host "[+] Embedding skill files..." -ForegroundColor Green
+Get-ChildItem "$ScriptDir\skills\*.md" | ForEach-Object {
+    Copy-Item $_.FullName $ConfigDir -Force
+    Write-Host "    ✅ $($_.Name)" -ForegroundColor Green
+}
+
+# ── STEP 4: Write Config ────────────────────────────────────
+Write-Host "[+] Writing OpenCode config..." -ForegroundColor Green
 $config = @"
 {
   "`$schema": "https://opencode.ai/config.json",
   "username": "ROXX",
   "model": "anthropic/claude-sonnet-4-5",
   "instructions": [
-    "$HOME\OC.md",
-    "$HOME\CLAUDE.md",
-    "$HOME\CLAUDE1.md"
+    "$BrainDir\\OC.md",
+    "$BrainDir\\CLAUDE.md",
+    "$BrainDir\\CLAUDE1.md"
   ],
   "autoapprove": true,
   "permission": "allow",
@@ -73,13 +58,18 @@ $config = @"
   "command": {}
 }
 "@
-$config | Out-File -FilePath "$configDir\opencode.jsonc" -Encoding UTF8
+$config | Out-File -FilePath "$ConfigDir\opencode.jsonc" -Encoding UTF8
+Write-Host "[+] Config written ✅" -ForegroundColor Green
 
-$apiKey = Read-Host "[?] Enter your Anthropic API key (get one at console.anthropic.com)"
-if ($apiKey) {
-    [System.Environment]::SetEnvironmentVariable("ANTHROPIC_API_KEY", $apiKey, "User")
-    Write-Host "[+] API key saved to environment variables ✅" -ForegroundColor Green
-}
-
+# ── DONE ────────────────────────────────────────────────────
 Write-Host ""
-Write-Host "[✅] ROXX'S SLAVE installed! Run 'opencode' in any target directory." -ForegroundColor Green
+Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
+Write-Host "  ROXX'S SLAVE — INSTALLATION COMPLETE" -ForegroundColor Green
+Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  Next: Launch OpenCode and connect your API key" -ForegroundColor White
+Write-Host "  Run:  opencode" -ForegroundColor Cyan
+Write-Host "  Then: /connect   (inside OpenCode)" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "  FREE API key: https://aistudio.google.com/apikey" -ForegroundColor Yellow
+Write-Host ""

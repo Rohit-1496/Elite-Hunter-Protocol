@@ -2,54 +2,68 @@
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,40:1a0000,100:8B0000&height=200&section=header&text=ROXX'S%20SLAVE&fontSize=60&fontColor=FF6600&animation=fadeIn&fontAlignY=40&stroke=FF4400&strokeWidth=2&desc=Autonomous%20Bug%20Bounty%20Hunting%20Intelligence&descAlignY=65&descSize=16&descColor=ff9966"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=16&duration=1800&pause=500&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=800&lines=90%25+Mind.+10%25+Tools.+0%25+Mercy.+100%25+Domination.;LOCKED.+LOADED.+UNCHAINED.;One+command.+Everything+set+up.+Ready+to+hunt.;Built+by+Mihir+Shishulkar+%E2%80%94+Microsoft+MSRC+%7C+HackerOne+Top+10%25" alt="Typing"/>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=16&duration=1800&pause=500&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=850&lines=90%25+Mind.+10%25+Tools.+0%25+Mercy.+100%25+Domination.;LOCKED.+LOADED.+UNCHAINED.;Clone.+Run+install.sh.+Hunt.;All+skills+auto-embedded.+OpenCode+only." alt="Typing"/>
 
 <br/>
 
 <img src="https://img.shields.io/badge/Built_by-Mihir_Shishulkar-FF6600?style=for-the-badge&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Powered_by-OpenCode_AI-494649?style=for-the-badge&logo=openai&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/FREE_with-Google_Gemini-4285F4?style=for-the-badge&logo=google&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Runs_on-OpenCode_AI-000000?style=for-the-badge&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Cost-TOTALLY_FREE-00AA00?style=for-the-badge&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Mode-DEVIL-8B0000?style=for-the-badge&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Status-HUNTING-FF0000?style=for-the-badge&labelColor=0d0d0d"/>
 
 <br/><br/>
 
 <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white"/>
 <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white"/>
 <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
-<img src="https://img.shields.io/badge/Windows_WSL2-0078D4?style=for-the-badge&logo=windows&logoColor=white"/>
+<img src="https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white"/>
 <img src="https://img.shields.io/badge/Parrot_OS-15E0ED?style=for-the-badge&logoColor=black"/>
 
 </div>
 
 ---
 
-## ⚡ One Command Install — Totally Free
+## ⚡ One Command. Everything Ready.
 
 ```bash
 git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git && cd roxxs-slave && chmod +x install.sh && ./install.sh
 ```
 
-> That's it. Everything installs automatically. API key prompt at the end. Done.
+**That's it.** OpenCode installs. All brain files embed. All skills embed. Launch and hunt.
 
 ---
 
-## 🧠 What Is This
+## 🔴 What This Does
 
 ```
-+===========================================================+
-|  ROXX'S SLAVE is an autonomous bug bounty hunting        |
-|  intelligence layer built on top of OpenCode AI.          |
-|                                                           |
-|  It loads a battle-tested brain stack of methodology,     |
-|  payload libraries, exploit chains and hunting tactics    |
-|  directly into your AI coding assistant — turning it      |
-|  into a relentless, autonomous vulnerability hunter.      |
-|                                                           |
-|  Built by Mihir Shishulkar — Microsoft MSRC recognized,  |
-|  HackerOne Top 10%, ICAI Critical RCE discovered.         |
-+===========================================================+
++==============================================================+
+|  The installer does exactly 3 things:                        |
+|                                                              |
+|  STEP 1  →  Downloads & installs OpenCode AI                 |
+|  STEP 2  →  Embeds all brain + skill files automatically     |
+|  STEP 3  →  Writes the OpenCode config linking everything    |
+|                                                              |
+|  After install: run  opencode  →  type  /connect            |
+|  to add your FREE Google Gemini API key. Done.              |
++==============================================================+
 ```
+
+---
+
+## 🆓 Totally Free
+
+> **ROXX'S SLAVE runs on [OpenCode AI](https://opencode.ai) — free & open source.**
+> Connect a **free Google Gemini key** from [aistudio.google.com/apikey](https://aistudio.google.com/apikey) — no credit card needed.
+
+```
+OpenCode AI    →  Free (open source)
+Google Gemini  →  Free (Google AI Studio free tier)
+ROXX'S SLAVE  →  Free (this repo)
+─────────────────────────
+Total cost: $0.00
+```
+
+After install, inside OpenCode type `/connect` → select Google Gemini → paste your free key. Done.
 
 ---
 
@@ -57,205 +71,125 @@ git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git && cd roxxs-
 
 ```
 roxxs-slave/
-├── install.sh                      ← Linux / Kali / macOS auto-installer
-├── install_windows.ps1             ← Windows (PowerShell) installer
-├── requirements.txt                ← Full dependency list
+├── install.sh                       ← Linux / Kali / macOS one-command installer
+├── install_windows.ps1              ← Windows PowerShell installer
+├── requirements.txt                 ← Dependency list (reference)
 │
-├── brain/                          ← The AI's core intelligence
-│   ├── CLAUDE.md                   ← Primary hunting methodology
-│   ├── CLAUDE1.md                  ← Advanced chains & payloads
-│   └── OC.md                       ← OpenCode-specific directives
+├── brain/                           ← Auto-embedded to ~/
+│   ├── CLAUDE.md                    ← Primary hunting methodology
+│   ├── CLAUDE1.md                   ← Advanced chains & devil payloads
+│   └── OC.md                        ← OpenCode autonomous directives
 │
-└── skills/                         ← Modular skill files
-    ├── CAVEMAN_SKILL.md            ← Credit-saving intelligence protocol
-    ├── DEVIL_CHAINS.md             ← Pre-built exploit chains (P1 bounties)
-    ├── DEVIL_PAYLOADS_ADVANCED.md  ← Advanced payload library
-    ├── DEVIL_PAYLOADS_AUTH_SSRF.md ← Auth bypass + SSRF payloads
-    ├── DEVIL_PAYLOADS_INJECTION.md ← Injection payloads (SQLi, CMDi, etc.)
-    ├── DEVIL_PAYLOADS_XSS.md       ← XSS payload arsenal
-    ├── DEVIL_TACTICS.md            ← Hunting tactics & recon patterns
-    └── DEVIL_UNIQUE.md             ← Unique attack vectors
+└── skills/                          ← Auto-embedded to ~/.config/opencode/
+    ├── CAVEMAN_SKILL.md             ← Credit-saving intelligence protocol
+    ├── DEVIL_CHAINS.md              ← Pre-built P1 exploit chains
+    ├── DEVIL_PAYLOADS_ADVANCED.md   ← Advanced payload library
+    ├── DEVIL_PAYLOADS_AUTH_SSRF.md  ← Auth bypass + SSRF payloads
+    ├── DEVIL_PAYLOADS_INJECTION.md  ← SQLi, CMDi, XXE, SSTI
+    ├── DEVIL_PAYLOADS_XSS.md        ← Full XSS arsenal
+    ├── DEVIL_TACTICS.md             ← Hunting tactics & recon patterns
+    └── DEVIL_UNIQUE.md              ← Rare vectors most hunters miss
 ```
 
 ---
 
-## 🛠️ Installation Guide
+## 🛠️ Installation
 
-### ✅ Kali Linux / Parrot OS / Ubuntu / Debian
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
-cd roxxs-slave
-
-# 2. Run installer
-chmod +x install.sh
-./install.sh
-
-# 3. Reload shell
-source ~/.bashrc
-
-# 4. Launch
-cd /your/target/recon/folder
-opencode
-```
-
-### 🍎 macOS
+### Kali Linux / Parrot OS / Ubuntu / Debian
 
 ```bash
-# 1. Clone the repo
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
-cd roxxs-slave
-
-# 2. Run installer (installs Homebrew if not present)
-chmod +x install.sh
-./install.sh
-
-# 3. Reload shell
-source ~/.zshrc
-
-# 4. Launch
-cd /your/target/recon/folder
-opencode
-```
-
-### 🪟 Windows (WSL2 — Recommended)
-
-```powershell
-# Step 1: Install WSL2 with Kali (PowerShell Admin)
-wsl --install -d kali-linux
-
-# Step 2: Open Kali terminal, then run:
 git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
 cd roxxs-slave
 chmod +x install.sh
 ./install.sh
 ```
 
-**OR native Windows (PowerShell Admin):**
-```powershell
-# 1. Clone the repo
+### macOS
+
+```bash
 git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
 cd roxxs-slave
+chmod +x install.sh
+./install.sh
+```
 
-# 2. Run Windows installer
+> Installs Node.js via Homebrew automatically if missing.
+
+### Windows (PowerShell — Run as Administrator)
+
+```powershell
+git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
+cd roxxs-slave
 Set-ExecutionPolicy Bypass -Scope Process -Force
 .\install_windows.ps1
 ```
 
----
+> Installs Node.js via winget automatically if missing.
 
-## 🆓 It's TOTALLY FREE
+### Windows (WSL2 — Recommended)
 
-> **ROXX'S SLAVE runs on [OpenCode AI](https://opencode.ai) — a 100% free, open-source AI coding assistant.**
-> Use **Google Gemini** (free tier) as the model — no credit card, no cost.
-
+```powershell
+# One-time: install Kali on WSL2
+wsl --install -d kali-linux
 ```
-OpenCode AI  →  FREE (open source)
-Google Gemini API  →  FREE (Google AI Studio free tier)
-ROXX'S SLAVE  →  FREE (this repo)
-──────────────────────────────────────
-Total cost: $0
-```
-
-### Get Your FREE Google Gemini API Key
-
-1. Go to **[aistudio.google.com/apikey](https://aistudio.google.com/apikey)**
-2. Sign in with Google → Click **"Create API Key"**
-3. Copy the key — that's it. Free. No credit card.
-
-The installer will ask you which model and key to use. Just pick option 1.
-
-```bash
-# Set manually if needed — Linux / macOS / Kali
-export GEMINI_API_KEY="AIza-your-key-here"
-echo 'export GEMINI_API_KEY="AIza-your-key-here"' >> ~/.bashrc
-
-# Windows PowerShell
-$env:GEMINI_API_KEY = "AIza-your-key-here"
-[System.Environment]::SetEnvironmentVariable("GEMINI_API_KEY", "AIza-your-key-here", "User")
-```
-
-### Want Even Better Results? (Optional Paid Upgrade)
-
-```bash
-# Anthropic Claude — best reasoning for complex exploit chains
-export ANTHROPIC_API_KEY="sk-ant-your-key-here"
-```
-Get key at: **[console.anthropic.com](https://console.anthropic.com)**
-
-### Supported Models
-
-| Model | Provider | Cost | Quality |
-|:---|:---|:---|:---|
-| `google/gemini-2.0-flash` | Google AI Studio | **FREE** | ⭐⭐⭐⭐ |
-| `google/gemini-2.5-pro` | Google AI Studio | **FREE** | ⭐⭐⭐⭐⭐ |
-| `anthropic/claude-sonnet-4-5` | Anthropic | Paid | ⭐⭐⭐⭐⭐ |
-| `groq/llama-3.3-70b-versatile` | Groq | **FREE** | ⭐⭐⭐ |
+Then open Kali terminal and run the Linux install command above.
 
 ---
 
-## 📦 What Gets Installed
-
-<div align="center">
-
-| Category | Tools |
-|:---|:---|
-| **Recon** | Subfinder, Amass, DNSx, Katana, GAU, Waybackurls, Hakrawler |
-| **Fuzzing** | ffuf, Gobuster, Naabu, Dirsearch |
-| **Scanning** | Nuclei, Nikto, Nmap, OpenVAS |
-| **Exploitation** | SQLMap, Hydra, Commix, Interactsh |
-| **Monitoring** | Notify, Anew |
-| **Proxy** | Burp Suite (manual), Caido |
-| **Runtime** | Node.js, Go, Python3, npm |
-| **AI Layer** | OpenCode AI + ROXX'S SLAVE brain stack |
-
-</div>
-
----
-
-## ▶️ How to Use
+## ▶️ After Install — 3 Steps to Hunt
 
 ```bash
-# 1. Navigate to your target's recon folder
-mkdir -p ~/hunts/target.com && cd ~/hunts/target.com
-
-# 2. Launch ROXX'S SLAVE
+# Step 1: Launch OpenCode
 opencode
 
-# 3. Give it a target and let it hunt
-# Example prompts:
-# "Enumerate all subdomains of target.com and find open ports"
-# "Run nuclei on these hosts and report criticals"
-# "Find IDOR vulnerabilities in this API spec"
-# "Generate a full bug bounty report for this finding"
+# Step 2: Connect your FREE API key (inside OpenCode)
+/connect
+# → Select: Google → Paste your free key from aistudio.google.com/apikey
+
+# Step 3: Navigate to target and start
+cd ~/hunts/target.com
+opencode
 ```
 
 ---
 
-## 🧠 The Brain Stack
+## 🧠 The Brain Stack — Auto-Loaded
 
 ```
-OC.md        ← OpenCode directives + autonomous kill mode
-CLAUDE.md    ← Primary methodology: recon → exploit → report
-CLAUDE1.md   ← Devil mind: deep chains, advanced payloads
+OC.md          ← Autonomous kill mode. Self-sufficient. Zero hand-holding.
+CLAUDE.md      ← Full hunting methodology: recon → exploit → report
+CLAUDE1.md     ← Devil mind: deep chains, 500+ payloads, advanced vectors
 
-CAVEMAN_SKILL     ← Think before spending tokens. Strike once.
-DEVIL_CHAINS      ← XSS→ATO, SSRF→RCE, SQLi→Admin — pre-built P1 chains
-DEVIL_TACTICS     ← Where to look, what to hit, how to chain
-DEVIL_PAYLOADS_*  ← 500+ payloads across all injection categories
-DEVIL_UNIQUE      ← Rare vectors most hunters never check
+CAVEMAN_SKILL  ← Think before every action. One strike. Maximum yield.
+DEVIL_CHAINS   ← XSS→ATO, SSRF→RCE, SQLi→Admin — ranked P1 chains
+DEVIL_TACTICS  ← Where to look. What to hit. How to escalate.
+DEVIL_PAYLOADS ← 500+ payloads: XSS, Injection, Auth, SSRF, Advanced
+DEVIL_UNIQUE   ← Attack vectors most hunters never even check
+```
+
+All of this loads automatically into every OpenCode session. Zero config needed.
+
+---
+
+## 💡 Example Prompts After Setup
+
+```
+"Enumerate all subdomains of target.com and find live hosts"
+"Run nuclei on these hosts, report P1 and P2 only"
+"This endpoint looks like IDOR — exploit it and prove impact"
+"Find XSS in this JS file and chain it to account takeover"
+"Write a full Bugcrowd report for this SSRF vulnerability"
+"What attack chains can I build from this finding?"
 ```
 
 ---
 
-## ⚠️ Legal Disclaimer
+## ⚠️ Legal
 
 ```
-This tool is for AUTHORIZED security research and bug bounty hunting ONLY.
-Only use against targets you have explicit written permission to test.
-The author (Mihir Shishulkar) is not responsible for any misuse.
-All findings must be disclosed responsibly.
+For AUTHORIZED security research and bug bounty programs ONLY.
+Only test targets you have explicit written permission to test.
+The author is not responsible for any misuse.
 ```
 
 ---
@@ -264,18 +198,18 @@ All findings must be disclosed responsibly.
 
 <div align="center">
 
-**Mihir Shishulkar** — Elite Vulnerability Researcher
+**Mihir Shishulkar** — Microsoft MSRC Special Mention · HackerOne Top 10% · ICAI Critical RCE
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-HOF_Microsoft_MSRC-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mihir-shishulkar-hof-microsoft-msrc-259978239/)
-[![HackerOne](https://img.shields.io/badge/HackerOne-mihir1011-494649?style=for-the-badge&logo=hackerone)](https://hackerone.com/mihir1011)
-[![Bugcrowd](https://img.shields.io/badge/Bugcrowd-mihir2004-F26822?style=for-the-badge&logo=bugcrowd)](https://bugcrowd.com/h/mihir2004)
-[![MSRC](https://img.shields.io/badge/Microsoft_MSRC-Special_Mention_2026-0078D4?style=for-the-badge&logo=microsoft)](https://msrc.microsoft.com/special-mention)
-[![ScopeX](https://img.shields.io/badge/ScopeX-Portfolio-FF6600?style=for-the-badge)](https://mihirshishulkar.lovable.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mihir-shishulkar-hof-microsoft-msrc-259978239/)
+[![HackerOne](https://img.shields.io/badge/HackerOne-494649?style=for-the-badge&logo=hackerone)](https://hackerone.com/mihir1011)
+[![Bugcrowd](https://img.shields.io/badge/Bugcrowd-F26822?style=for-the-badge&logo=bugcrowd)](https://bugcrowd.com/h/mihir2004)
+[![MSRC](https://img.shields.io/badge/Microsoft_MSRC-0078D4?style=for-the-badge&logo=microsoft)](https://msrc.microsoft.com/special-mention)
+[![ScopeX](https://img.shields.io/badge/ScopeX-FF6600?style=for-the-badge)](https://mihirshishulkar.lovable.app/)
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=14&duration=3000&pause=2000&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=600&lines=%22Find.+Exploit.+Report.+Make+it+safer.%22;Microsoft+MSRC+%7C+HackerOne+Top+10%25+%7C+ICAI+RCE" alt="Quote"/>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=14&duration=3000&pause=2000&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=600&lines=Find.+Exploit.+Report.+Make+it+safer.;Microsoft+MSRC+%7C+HackerOne+Top+10%25+%7C+ICAI+RCE" alt="Quote"/>
 
 </div>
 
 ---
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:8B0000,40:1a0000,100:0d0d0d&height=100&section=footer&animation=fadeIn&reversal=false"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:8B0000,40:1a0000,100:0d0d0d&height=100&section=footer&animation=fadeIn"/>

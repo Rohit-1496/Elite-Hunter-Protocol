@@ -7,7 +7,8 @@
 <br/>
 
 <img src="https://img.shields.io/badge/Built_by-Mihir_Shishulkar-FF6600?style=for-the-badge&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Powered_by-OpenCode_AI-494649?style=for-the-badge&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Powered_by-OpenCode_AI-494649?style=for-the-badge&logo=openai&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/FREE_with-Google_Gemini-4285F4?style=for-the-badge&logo=google&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Mode-DEVIL-8B0000?style=for-the-badge&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Status-HUNTING-FF0000?style=for-the-badge&labelColor=0d0d0d"/>
 
@@ -23,7 +24,7 @@
 
 ---
 
-## ⚡ One Command Install
+## ⚡ One Command Install — Totally Free
 
 ```bash
 git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git && cd roxxs-slave && chmod +x install.sh && ./install.sh
@@ -144,21 +145,53 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 
 ---
 
-## 🔑 API Key Setup
+## 🆓 It's TOTALLY FREE
 
-You need an **Anthropic API key** (Claude). The installer will prompt you, or set it manually:
+> **ROXX'S SLAVE runs on [OpenCode AI](https://opencode.ai) — a 100% free, open-source AI coding assistant.**
+> Use **Google Gemini** (free tier) as the model — no credit card, no cost.
 
-```bash
-# Linux / macOS / Kali
-export ANTHROPIC_API_KEY="sk-ant-your-key-here"
-echo 'export ANTHROPIC_API_KEY="sk-ant-your-key-here"' >> ~/.bashrc
-
-# Windows PowerShell
-$env:ANTHROPIC_API_KEY = "sk-ant-your-key-here"
-[System.Environment]::SetEnvironmentVariable("ANTHROPIC_API_KEY", "sk-ant-your-key-here", "User")
+```
+OpenCode AI  →  FREE (open source)
+Google Gemini API  →  FREE (Google AI Studio free tier)
+ROXX'S SLAVE  →  FREE (this repo)
+──────────────────────────────────────
+Total cost: $0
 ```
 
-Get your key at: **[console.anthropic.com](https://console.anthropic.com)**
+### Get Your FREE Google Gemini API Key
+
+1. Go to **[aistudio.google.com/apikey](https://aistudio.google.com/apikey)**
+2. Sign in with Google → Click **"Create API Key"**
+3. Copy the key — that's it. Free. No credit card.
+
+The installer will ask you which model and key to use. Just pick option 1.
+
+```bash
+# Set manually if needed — Linux / macOS / Kali
+export GEMINI_API_KEY="AIza-your-key-here"
+echo 'export GEMINI_API_KEY="AIza-your-key-here"' >> ~/.bashrc
+
+# Windows PowerShell
+$env:GEMINI_API_KEY = "AIza-your-key-here"
+[System.Environment]::SetEnvironmentVariable("GEMINI_API_KEY", "AIza-your-key-here", "User")
+```
+
+### Want Even Better Results? (Optional Paid Upgrade)
+
+```bash
+# Anthropic Claude — best reasoning for complex exploit chains
+export ANTHROPIC_API_KEY="sk-ant-your-key-here"
+```
+Get key at: **[console.anthropic.com](https://console.anthropic.com)**
+
+### Supported Models
+
+| Model | Provider | Cost | Quality |
+|:---|:---|:---|:---|
+| `google/gemini-2.0-flash` | Google AI Studio | **FREE** | ⭐⭐⭐⭐ |
+| `google/gemini-2.5-pro` | Google AI Studio | **FREE** | ⭐⭐⭐⭐⭐ |
+| `anthropic/claude-sonnet-4-5` | Anthropic | Paid | ⭐⭐⭐⭐⭐ |
+| `groq/llama-3.3-70b-versatile` | Groq | **FREE** | ⭐⭐⭐ |
 
 ---
 

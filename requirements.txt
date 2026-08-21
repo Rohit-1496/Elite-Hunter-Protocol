@@ -1,0 +1,44 @@
+# ============================================================
+# ROXX'S SLAVE — Requirements
+# All tools needed for the autonomous bug bounty intelligence
+# ============================================================
+
+# ── CORE RUNTIME ──────────────────────────────────────────
+nodejs>=18.0.0
+npm>=9.0.0
+go>=1.21.0
+python3>=3.10.0
+pip3
+
+# ── GO-BASED TOOLS (auto-installed by install.sh) ─────────
+# nuclei          - Fast vulnerability scanner
+# subfinder       - Subdomain discovery
+# httpx           - HTTP probing
+# ffuf            - Fuzzer
+# amass           - Attack surface mapping
+# dnsx            - DNS toolkit
+# katana          - Web crawler
+# naabu           - Port scanner
+# gau             - Fetch known URLs
+# waybackurls     - Wayback Machine URLs
+# anew            - Append new lines
+# notify          - Send notifications
+# interactsh-client - OOB interaction
+
+# ── SYSTEM PACKAGES (auto-installed by install.sh) ────────
+# nmap            - Network scanner
+# sqlmap          - SQL injection tool
+# hydra           - Brute force tool
+# nikto           - Web server scanner
+# gobuster        - Directory/file fuzzer
+# git             - Version control
+# curl            - HTTP client
+# jq              - JSON processor
+# unzip           - Archive extraction
+
+# ── PYTHON PACKAGES ───────────────────────────────────────
+requests>=2.31.0
+urllib3>=2.0.0
+colorama>=0.4.6
+rich>=13.0.0
+python-dotenv>=1.0.0

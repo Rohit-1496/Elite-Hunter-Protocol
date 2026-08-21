@@ -184,6 +184,15 @@ All of this loads automatically into every OpenCode session. Zero config needed.
 
 ---
 
+## 💰 Support the Project
+
+> No sponsors yet. If ROXX'S SLAVE helped you land a bounty — you know what to do.
+
+[![Support via PayPal](https://img.shields.io/badge/PayPal-Support_the_Project-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/MihirShishulkar)
+
+
+---
+
 ## ⚠️ Legal
 
 ```

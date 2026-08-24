@@ -381,7 +381,33 @@ Every confirmed finding + every other confirmed finding on this program = does t
 
 ## REPORTING — WHERE BOUNTY IS EARNED
 
-Report format is fully defined in REPORTING_PROTOCOL.md — write ONE clean file per CONFIRMED finding, then gate it with save_report.sh. Do not use any other report layout.
+**Title:** `[CRITICAL/HIGH] — [Vuln Class] — [Attacker Achieves This] — [Exact Component]`
+
+**24 sections, every report:**
+1. Severity + CVSS v3.1 score with metric justification
+2. CVSS v3.1 vector string (every metric justified)
+3. CWE ID
+4. Executive summary (2-3 sentences, zero jargon, written for CEO)
+5. Vulnerability description (root cause: what assumption was wrong)
+6. Affected assets
+7. Affected endpoints with HTTP methods
+8. Root cause (specific code error or design flaw)
+9. Attack scenario (step by step, causally linked, no gaps)
+10. Prerequisites (account type, knowledge, application state)
+11. Technical impact (users affected, data exposed, actions possible)
+12. Business impact (regulation, financial estimate, reputational headline)
+13. Reproduction steps (numbered, <10 minutes to reproduce)
+14. Proof of concept (reference attachments)
+15. HTTP requests and responses (complete)
+16. Technical evidence (screenshots, recordings, OOB callback logs)
+17. Observed vs potential impact at scale
+18. Risk assessment
+19. Remediation (specific, actionable, line-level guidance)
+20. Fix verification steps
+21. References (CVEs, CWEs, OWASP)
+22. Timeline (discovery, submission dates)
+23. Attachments list with descriptions
+24. Follow-up recommendations for program's internal audit
 
 **Iron rules:** One root cause per report. CONFIRMATION / FALSE-POSITIVE RULES: single source of truth is
  CONFIRMATION_PROTOCOL.md. A finding is CONFIRMED only if it passes THE PROOF GATE

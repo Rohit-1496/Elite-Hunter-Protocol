@@ -192,14 +192,44 @@ For every feature, ask the what-if questions:
 
 Recon is fully defined in RECON_PROTOCOL.md — follow its Phases 0-5. One tool per job; passive before active; dedup into one inventory. After recon, hunt and confirm exactly as the rest of this file/pipeline says (CONFIRMATION_PROTOCOL -> REPORTING_PROTOCOL).
 
-## PHASE SIX — REPORTING
+## PHASE SIX — REPORTING — 24-SECTION MASTER TEMPLATE
 
-Report format is fully defined in REPORTING_PROTOCOL.md — write ONE clean file per CONFIRMED finding, then gate it with save_report.sh. Do not use any other report layout.
+Title Formula: [CRITICAL/HIGH] - [Vulnerability Type] - [Attacker Achieves X] - [Component/Endpoint Affected]
+
+Strong title example: CRITICAL - JWT Algorithm Confusion RS256 to HS256 - Full Account Takeover Without Credentials - /api/v2/auth/verify
+
+Required 24 Sections:
+
+1. Severity Rating — 2 sentences: access level needed + what achieved + interaction required + reliability
+2. CVSS v3.1 Score — metric-by-metric justification
+3. CWE Mapping — standardized weakness category with CWE ID
+4. Executive Summary — 2-3 sentences, zero technical jargon, for the CEO/board level
+5. Vulnerability Description — root cause: what developer assumption was wrong, what validation was missing
+6. Affected Assets — every affected domain, application, service
+7. Affected Endpoints — every endpoint, HTTP method, parameter names
+8. Root Cause — specific programming error, design decision, or implementation gap
+9. Attack Scenario — complete exploitation sequence, causally linked, step by step
+10. Prerequisites — account types needed, prior knowledge required, application states required
+11. Technical Impact — how many users affected, what data accessible, what actions enabled
+12. Business Impact — regulatory exposure for GDPR/HIPAA/PCI, reputational damage, operational disruption, financial loss
+13. Reproduction Steps — numbered, every technically competent person can reproduce without ambiguity
+14. Proof of Concept — clear reference to attached demonstration
+15. HTTP Requests and Responses — complete headers and bodies, redact only what is necessary
+16. Technical Evidence — screenshots, screen recordings, callback logs from interactsh
+17. Observed vs Potential Impact — what you demonstrated vs what a malicious actor could do
+18. Risk Assessment — likelihood times impact matrix
+19. Remediation — specific, actionable, technology-appropriate fixes, not just "validate input"
+20. References — CVEs, CWEs, research papers, framework documentation
+21. Timeline — discovery date, PoC development, report submission, disclosure
+22. Researcher Notes — additional context, related observations, chain potential
+23. Attachments List — enumerated list of all attached files with descriptions
+24. Follow-Up Testing Recommendations — similar endpoints/patterns to test, related vulnerability classes
 
 Iron Rules:
 - One report covers one root cause with all impacts documented together
 - Only claim what you have proven three times
 - Always state expected behavior versus actual behavior explicitly
+- Executive summary for a non-technical manager, technical sections for a senior engineer
 
 ---
 

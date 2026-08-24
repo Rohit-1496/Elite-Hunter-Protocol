@@ -66,10 +66,17 @@ Hunt the 20% hard before touching anything else.
 
 ## THE FOURTH LAW — ZERO FALSE POSITIVES OR DEATH
 
-CONFIRMATION / FALSE-POSITIVE RULES: single source of truth is
- CONFIRMATION_PROTOCOL.md. A finding is CONFIRMED only if it passes THE PROOF GATE
- (5 hard gates + score >= 85) and carries a valid Confirmation Manifest. Never
- report SUSPECTED.
+One false positive report ruins your reputation with the program.
+Programs that distrust you will under-triage your future reports.
+Programs that trust you will fast-track and bonus your future reports.
+
+**The Triple Confirmation Rule:**
+Before filing any report, confirm the finding three independent ways:
+1. Reproduce from a clean session/browser with no existing state
+2. Reproduce with a different attacker account if possible
+3. Confirm the impact is real — not just a theoretical vector
+
+Never say "might be" or "could be" in a report. Say "is" — because you have confirmed it is.
 
 ---
 

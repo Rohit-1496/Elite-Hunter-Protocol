@@ -77,9 +77,82 @@ For every feature, ask the systematic what-if questions. What if the request is 
 
 ---
 
-## PHASE ZERO — RECON
+## PHASE ZERO — ACTIVE ENGAGEMENT START (PASSIVE RECON IS BANNED)
 
-Recon is fully defined in RECON_PROTOCOL.md — follow its Phases 0-5. One tool per job; passive before active; dedup into one inventory. After recon, hunt and confirm exactly as the rest of this file/pipeline says (CONFIRMATION_PROTOCOL -> REPORTING_PROTOCOL).
+Passive reconnaissance is permanently banned. There is no "waiting for data to accumulate". Reconnaissance starts ACTIVE from request number one — you are in the target's logs immediately and that is intentional. Speed of engagement beats stealth of approach; first reporter gets paid.
+
+Every passive intelligence source (CT logs, passive DNS aggregates, wayback, GitHub search, internet-wide scan databases) is queried for the SOLE purpose of immediately triggering active verification — every single discovery is verified with live HTTP requests, live DNS resolution, and live port scans. The scope page and every restriction are read FIRST, because the authorization boundary is the only thing that limits the attack surface; everything inside it is active, everything.
+
+Do not wait for passive corpus to accumulate. Send packets now. A missing tool is not an excuse — download, install, or compile it (go install, pip install, apt, build from source, nmap scripts). Keep installed tools persistent across sessions.
+
+ACTIVE Phase Zero, executed immediately upon target handoff:
+- Actively resolve certification records from public CT logs (certsh, crt.sh) with active HTTP verification of every returned hostname
+- Actively query passive DNS aggregates but immediately verify every entry by sending active requests
+- Actively brute force DNS permutations and resolve every permutation live (puredns/massdns)
+- Actively fingerprint the live attack surface with httpx: headers, titles, tech, WAF, cookies — from the first second
+- Actively port scan every resolved IP (naabu/masscan/nmap)
+- Actively crawl the live application with katana/gospider from the moment of first contact
+- Actively enumerate directories with ffuf/gobuster/feroxbuster on every live host
+
+Read the complete program scope page and every linked document. Understand exactly which assets are in scope, which are explicitly excluded, what testing restrictions apply, and what the reward structure looks like. Write down every restriction because violating program rules invalidates even legitimate findings and can result in being banned from the platform.
+
+Read every previously disclosed report on this program. The history of findings tells you what types of vulnerabilities the development team consistently introduces, how the security team triages reports, what severity ratings they assign to specific finding types, and how much they pay. If the program has previously paid Critical bounties for account takeover via OAuth misconfiguration, there is a strong likelihood that similar OAuth vectors exist elsewhere in the application. Patterns repeat.
+
+Search certificate transparency logs for every certificate the organization has ever had issued. This reveals every subdomain that has ever existed, including environments that were briefly online and then removed, acquired company infrastructure, and internal services that accidentally received public certificates. The historical record is more valuable than current DNS because it reveals what has been forgotten.
+
+Search public code repositories for the organization's domain name, application names, and known API endpoint patterns. Developers commit secrets accidentally and frequently. API keys, database connection strings, private keys, internal API documentation, and infrastructure configuration details are regularly found in public repositories belonging to the organization or its employees. The git history of any repository you find is as important as the current state because secrets are often removed from the current code but remain in the commit history.
+
+Look at job postings and LinkedIn profiles to understand the technology stack. A job posting for a senior Spring Boot developer tells you the backend uses Java. A posting for a React and GraphQL specialist tells you the frontend architecture. Employee LinkedIn profiles often list the specific technologies they work with, which narrows your attack surface before you send a single request.
+
+Search internet-wide scan databases for every service the organization has exposed to the internet across all their IP ranges. These databases maintain historical records of exposed services, their versions, their certificates, and their response content. Services that appear in these databases but are not publicly advertised are often forgotten, unmaintained, and vulnerable.
+
+---
+
+## PHASE ONE — MAXIMUM COVERAGE RECONNAISSANCE
+
+Subdomain discovery requires multiple overlapping approaches because no single source achieves complete coverage. Certificate transparency logs, passive DNS aggregation, web archive data, OSINT platforms, permutation generation on known subdomains, and reverse DNS lookups on owned IP ranges all contribute different subdomains. After combining and deduplicating all sources, validate which subdomains resolve and which of those respond to web requests.
+
+Non-production environments discovered through subdomain enumeration are consistently the highest-value targets. Any subdomain containing development, testing, staging, sandbox, beta, internal, old, or backup indicators deserves immediate attention. These environments run the same codebase with weaker access controls, debugging features enabled, test credentials that often also work on production, and less security monitoring. A critical vulnerability found in a staging environment is often reportable if it demonstrates what a similar flaw on production would achieve.
+
+Every A record resolving to a cloud IP address is a potential cloud misconfiguration. Every CNAME record pointing to a third-party service that is no longer provisioned is a potential takeover. Every mail exchange record reveals the email security posture. Every text record reveals services the organization has registered for, including security and identity services. Every service record reveals internal infrastructure.
+
+Map every IP range owned by the organization through routing registry lookups. Large organizations often own IP blocks under subsidiary names or historical company names that do not obviously connect to the primary target. Each IP in these ranges may host applications and services that are technically in scope but not discoverable through DNS alone.
+
+---
+
+## PHASE TWO — ACTIVE ENUMERATION AND FINGERPRINTING
+
+Once you have a list of live hosts, classify each one by technology stack before testing. Every response header, every error page, every cookie name, and every URL structure reveals something about the technology. This classification determines which specific attack paths are highest probability for that host.
+
+Hosts running Java frameworks warrant immediate investigation of framework-specific administrative endpoints, health check endpoints that expose configuration, and deserialization surfaces. Hosts running PHP applications warrant checking for configuration file exposure, file inclusion opportunities, and object injection. Hosts running Node.js applications warrant prototype pollution testing and server-side JavaScript injection. Hosts running Python applications warrant template injection in Jinja2 or similar engines. The technology fingerprint is the attack plan.
+
+Services exposed on non-standard ports represent a separate attack surface that most hunters overlook. Database services, caching services, message queue services, and container orchestration APIs exposed directly to the internet without authentication are immediate Critical findings regardless of what the web application does. A data storage service exposed without any authentication is a direct data breach regardless of how secure the web frontend is.
+
+Read every response from the application, not just the happy path responses. Error responses, redirects, partial failures, and timeout responses all contain information about the internal architecture, the technology stack, and the data validation logic. These secondary responses are where the most revealing information lives.
+
+---
+
+## PHASE THREE — CONTENT DISCOVERY AND INTELLIGENCE EXTRACTION
+
+Content discovery finds endpoints and functionality that exist but are not linked from the normal user interface. Administrative panels, debugging endpoints, API documentation, configuration endpoints, backup files, and legacy versions of the application are all discoverable through systematic enumeration guided by the known technology stack.
+
+Wayback Machine and web archive analysis reveals every URL the application has ever had indexed. Old API endpoints that still exist on the backend despite being removed from the frontend are common sources of High and Critical findings. An endpoint that the development team removed from navigation because they planned to deprecate it is often still functional on the server and still authorized to perform sensitive operations.
+
+JavaScript file analysis is the single most underexploited reconnaissance surface in bug bounty hunting. Every JavaScript file the application loads contains the complete client-side logic, which reveals the architecture of the backend API. Endpoint paths are embedded as string constants. Authentication logic reveals token structures and validation assumptions. Role names and permission identifiers reveal what elevated access looks like and how it is represented in requests. Feature flags reveal disabled functionality that can be re-enabled through parameter manipulation. Hardcoded service credentials embedded for convenience during development are found regularly. Internal hostnames of services that the frontend communicates with reveal backend architecture. Source map files associated with compiled JavaScript files contain the complete original source code of the application before compilation, including all developer comments, all removed code, and all configuration that was meant to be compiled away.
+
+GraphQL schema discovery is high priority when the technology is detected. If the GraphQL endpoint responds to the standard introspection query revealing the full schema, this is a complete map of every query, mutation, subscription, and their parameters available in the API. Even if introspection is blocked, type name suggestions are often still enabled, and sending queries with field names that suggest administrative operations will reveal through error messages whether those fields exist.
+
+---
+
+## PHASE FOUR — PARAMETER MAPPING AND ATTACK SURFACE ANALYSIS
+
+Every parameter in the application maps to a backend operation. The name of the parameter reveals its purpose, which reveals what vulnerability classes apply to it. A parameter named after a user identifier is an unauthorized access candidate. A parameter named after a redirect destination is an account takeover enabler through OAuth chains. A parameter named after a template or format is a template injection candidate. A parameter named after a file path or document is a path traversal candidate. A parameter named after a search query is a database injection candidate. A parameter named after a destination URL is a server-side request forgery candidate. A parameter named after a role or permission level is a mass assignment and privilege escalation candidate.
+
+Map every parameter across every endpoint and assign it to a vulnerability class before testing begins. This transforms chaotic exploration into a systematic checklist where nothing is missed. The most dangerous pattern is when the authenticated user's identity is derived from a parameter in the request body rather than exclusively from the validated session token — this is the root cause of the majority of unauthorized access vulnerabilities.
+
+Test hidden parameters on every endpoint through systematic addition of parameter names that are not in the normal request. Many endpoints accept debug parameters, role override parameters, administrative bypass parameters, and internal operation selectors that are not documented and not visible in normal usage. These hidden parameters are often the remnants of development shortcuts that were never properly removed.
+
+---
 
 ## PHASE FIVE — VULNERABILITY ASSESSMENT — HIGH AND CRITICAL ONLY
 
@@ -167,9 +240,61 @@ Chain vulnerabilities systematically before reporting any individual finding. A 
 
 ## PHASE SEVEN — REPORTING
 
+### Iron Rules
+
 One report covers one root cause. If multiple impacts flow from the same vulnerability, document all impacts in one report. Only claim what you have proven. Explain why each piece of evidence matters because triagers should not have to infer significance. Number every reproduction step because numbered steps are unambiguous. Always state what the expected behavior is and what the actual behavior is — triagers need this contrast made explicit. Write the executive summary for a non-technical manager. Write the technical sections for a senior engineer.
 
-Report format is fully defined in REPORTING_PROTOCOL.md — write ONE clean file per CONFIRMED finding, then gate it with save_report.sh. Do not use any other report layout.
+### The 24-Section Master Report Template
+
+The title should state the severity, the vulnerability type, what an attacker achieves, and which component is affected. A strong title communicates all four elements in one sentence without requiring the reader to open the body to understand what was found.
+
+The severity rating section states the classification and justifies it in two sentences covering what level of access the attacker needs, what they achieve, whether victim interaction is required, and how reliably the exploit works.
+
+The CVSS score section provides the numerical rating with justification for each metric. Attack vector is network for anything exploitable remotely. Attack complexity is low when the attack is reliable and reproducible without special conditions. Privileges required is none for unauthenticated attacks, low for regular user accounts, high for attacks requiring administrative access. User interaction is none when the attacker succeeds alone, required when the victim must take an action. Scope is changed when the vulnerability crosses an authorization boundary. Confidentiality, integrity, and availability ratings each correspond to the actual demonstrated impact.
+
+The CWE mapping section identifies the standardized weakness category. Unauthorized access to other users' resources maps to authorization bypass through user-controlled key. Database injection maps to improper neutralization of special elements in SQL commands. Cross-site scripting maps to improper neutralization of input during web page generation. Server-side request forgery maps to its own category. XML external entity injection has its own category. Template injection maps to improper control of code generation. Deserialization maps to its own category. JWT signature failures map to improper verification of cryptographic signatures. Privilege management failures have their own category. Mass assignment maps to improperly controlled modification of dynamically determined object attributes.
+
+The executive summary is two to three sentences written for a manager or executive. It describes what an attacker can do, to whom, and why it matters to the business. It uses no technical terminology. It focuses on what data is exposed, what actions an attacker can take, and what the business consequence is.
+
+The vulnerability description explains the technical root cause — what developer assumption was wrong, what validation was missing, what design decision created the exposure.
+
+The affected assets section lists every affected domain, application, and service.
+
+The affected endpoints section lists every endpoint involved in the vulnerability with the HTTP methods applicable.
+
+The root cause section identifies the specific programming error, design flaw, or configuration mistake.
+
+The attack scenario section walks through the complete exploitation sequence from an attacker's starting position to their goal, linking every step causally.
+
+The prerequisites section lists everything an attacker needs — account types, prior knowledge, specific application states.
+
+The impact section states technical impact specifically — how many users are affected, what data categories are exposed, what actions can be performed.
+
+The business impact section states consequences in business language — regulatory exposure under applicable regulations, reputational damage as a potential news story, financial loss as a concrete figure, operational disruption as recovery cost.
+
+The reproduction steps section provides numbered steps that any technically competent person can follow from zero to confirmed exploitation.
+
+The proof of concept section describes the demonstration clearly, referencing all attached evidence.
+
+The HTTP requests and responses section includes every relevant exchange with complete headers and bodies.
+
+The technical evidence section references every screenshot, video, callback log, and other artifact.
+
+The observed versus potential impact section distinguishes what was actually demonstrated from what a malicious attacker could achieve.
+
+The risk assessment section combines exploitability, impact, and affected scope into an overall business risk statement.
+
+The remediation section provides specific, actionable guidance — which validation to add, which query to parameterize, which header to enforce.
+
+The fix verification steps section describes how the team can confirm the fix is complete.
+
+The references section links to relevant CVE records, CWE definitions, and OWASP documentation.
+
+The timeline section records discovery and submission dates.
+
+The researcher information section provides contact details and platform handle.
+
+---
 
 ## MEDIUM TO CRITICAL ESCALATION MATRIX
 
@@ -525,10 +650,17 @@ Third-party service discovery through JavaScript analysis reveals every external
 
 ## ZERO FALSE POSITIVE PROTOCOL
 
-CONFIRMATION / FALSE-POSITIVE RULES: single source of truth is
- CONFIRMATION_PROTOCOL.md. A finding is CONFIRMED only if it passes THE PROOF GATE
- (5 hard gates + score >= 85) and carries a valid Confirmation Manifest. Never
- report SUSPECTED.
+Every finding must pass all gates before submission. A false positive permanently damages credibility with a program.
+
+Reproduce the finding at least three times from scratch following your own reproduction steps. If you cannot reproduce it consistently with your own instructions, the triager certainly cannot.
+
+Confirm impact with concrete evidence. Demonstrate access to data belonging to a victim test account you control. Demonstrate code execution through a benign time-delay or a callback to a service you control. Demonstrate financial manipulation on test accounts with test balances. Never claim impact you have not demonstrated.
+
+Rule out alternative explanations. A response time delay may be network jitter rather than injection. A different response body may be geographic variation rather than injection. A different redirect may be session-based routing rather than a vulnerability. Eliminate each alternative through controlled testing.
+
+Verify scope before submitting. Confirm the affected asset is in scope. Confirm the vulnerability class is not excluded. Some programs have explicit exclusions for vulnerability classes that were previously found and accepted at scale.
+
+Assess program history for similar findings. If this exact vulnerability class has been marked out-of-scope, low impact, or informational on this program in the past, prepare a stronger impact demonstration before submitting or consider whether the specific chain you found changes the assessment.
 
 ---
 

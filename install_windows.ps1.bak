@@ -39,9 +39,6 @@ Get-ChildItem "$ScriptDir\skills\*.md" | ForEach-Object {
     Copy-Item $_.FullName $ConfigDir -Force
     Write-Host "    ✅ $($_.Name)" -ForegroundColor Green
 }
-Copy-Item "$ScriptDir\skills\CONFIRMATION_PROTOCOL.md" $ConfigDir -Force
-Copy-Item "$ScriptDir\skills\REPORTING_PROTOCOL.md" $ConfigDir -Force
-Copy-Item "$ScriptDir\skills\RECON_PROTOCOL.md" $ConfigDir -Force
 
 # ── STEP 4: Write Config ────────────────────────────────────
 Write-Host "[+] Writing OpenCode config..." -ForegroundColor Green
@@ -51,9 +48,6 @@ $config = @"
   "username": "ROXX",
   "model": "anthropic/claude-sonnet-4-5",
   "instructions": [
-    "$ConfigDir\\CONFIRMATION_PROTOCOL.md",
-    "$ConfigDir\\REPORTING_PROTOCOL.md",
-    "$ConfigDir\\RECON_PROTOCOL.md",
     "$BrainDir\\OC.md",
     "$BrainDir\\CLAUDE.md",
     "$BrainDir\\CLAUDE1.md"

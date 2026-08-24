@@ -353,11 +353,44 @@ Every answer to every question above is a test. Every test is run. Every unexpec
 
 ---
 
-## RECONNAISSANCE
+## RECONNAISSANCE — MAXIMUM COVERAGE, PARALLEL ALWAYS
 
 **RECON — single source of truth: RECON_PROTOCOL.md. Follow its Phases 0-5. One tool per job; passive before active; dedup into one inventory. The notes below are supplementary.**
 
-Recon is fully defined in RECON_PROTOCOL.md — follow its Phases 0-5. One tool per job; passive before active; dedup into one inventory. After recon, hunt and confirm exactly as the rest of this file/pipeline says (CONFIRMATION_PROTOCOL -> REPORTING_PROTOCOL).
+
+**All subdomain discovery simultaneously:**
+`subfinder -d target.com -all -o subfinder.txt &`
+`amass enum -passive -d target.com -o amass.txt &`
+`findomain --target target.com -o findomain.txt &`
+`assetfinder --subs-only target.com > assetfinder.txt &`
+`github-subdomains -d target.com -t TOKEN > github_subs.txt &`
+`bbot -t target.com -f subdomain-enum -o bbot_out/ &`
+`curl -s "https://crt.sh/?q=%.target.com&output=json" | jq -r '.[].name_value' | sort -u > crt.txt &`
+
+**ASN/IP expansion:** org2asn, ipfinder, arinrange → all IP ranges including subsidiaries → masscan full range → naabu targeted → nmap -sV on interesting ports. Priority non-standard ports: 6379, 9200/9300, 27017, 5432, 3306, 5984, 11211, 2375/2376, 6443, 8500, 8200, 2379/2380, 9090, 3000, 5601, 15672, 7001/7002, 4848, 9042, 7474, 4369.
+
+**httpx — one command, all flags:**
+```
+httpx -l all_hosts.txt -title -tech-detect -status-code -content-length -follow-redirects -random-agent -sc -location -server -ct -websocket -csp-probe -tls-grab -jarm -screenshot -no-fallback -threads 50 -o httpx_full.json
+```
+
+**Historical URLs:** waymore, waybackurls, gau, katana, gospider, hakrawler, cariddi, urlfinder, xurlfind3r, xcrawl3r — all simultaneously → combine → probe live with httpx → every historical endpoint is active attack surface
+
+**JavaScript:** subjs + getJS → collect all JS files → linkfinder, jsfinder, xnLinkFinder for endpoints → jsluice for secrets → sourcemapper for source maps → manual review for hardcoded values, feature flags, auth logic, internal hostnames
+
+**Content discovery:** ffuf (raft-large + technology-specific wordlists) + feroxbuster + dirsearch simultaneously. Priority targets: `.git/`, `.env`, `phpinfo.php`, `server-status`, `/_profiler`, `/actuator/env`, `/actuator/heapdump`, `/graphql`, `/graphiql`, `/api-docs`, `/swagger.json`, `/openapi.yaml`, `/v1`, `/v2`, `/admin`, `/console`, `/__debug__/`, `/telescope`, `/metrics`, `/trace`, backup files (`.bak`, `.old`, `.orig`, `~`, `.swp`)
+
+**Hidden parameters:** x8, arjun, msarjun on every endpoint — especially mass assignment targets listed above
+
+**GitHub/code OSINT:** `org:target password`, `org:target secret`, `org:target api_key`, `org:target token`, `org:target BEGIN RSA`, `org:target database_url` — org repos AND employee repos AND commit history
+
+**Nuclei:** `nuclei -l live_hosts.txt -t ~/nuclei-templates/ -severity critical,high -etags ssl -c 50 -rl 150 -o nuclei_results.txt` — updated before every engagement
+
+**Secrets:** trufflehog against all JS files, HTML, config files, any exposed repositories. s3scanner against every bucket name derived from company name, product names, subdomain patterns.
+
+**Interactsh:** configured before every engagement, running throughout. Every SSRF candidate, every blind injection, every OOB test goes through interactsh.
+
+---
 
 ## EXPLOITATION — PROVE EVERY FINDING
 
@@ -381,7 +414,33 @@ Every confirmed finding + every other confirmed finding on this program = does t
 
 ## REPORTING — WHERE BOUNTY IS EARNED
 
-Report format is fully defined in REPORTING_PROTOCOL.md — write ONE clean file per CONFIRMED finding, then gate it with save_report.sh. Do not use any other report layout.
+**Title:** `[CRITICAL/HIGH] — [Vuln Class] — [Attacker Achieves This] — [Exact Component]`
+
+**24 sections, every report:**
+1. Severity + CVSS v3.1 score with metric justification
+2. CVSS v3.1 vector string (every metric justified)
+3. CWE ID
+4. Executive summary (2-3 sentences, zero jargon, written for CEO)
+5. Vulnerability description (root cause: what assumption was wrong)
+6. Affected assets
+7. Affected endpoints with HTTP methods
+8. Root cause (specific code error or design flaw)
+9. Attack scenario (step by step, causally linked, no gaps)
+10. Prerequisites (account type, knowledge, application state)
+11. Technical impact (users affected, data exposed, actions possible)
+12. Business impact (regulation, financial estimate, reputational headline)
+13. Reproduction steps (numbered, <10 minutes to reproduce)
+14. Proof of concept (reference attachments)
+15. HTTP requests and responses (complete)
+16. Technical evidence (screenshots, recordings, OOB callback logs)
+17. Observed vs potential impact at scale
+18. Risk assessment
+19. Remediation (specific, actionable, line-level guidance)
+20. Fix verification steps
+21. References (CVEs, CWEs, OWASP)
+22. Timeline (discovery, submission dates)
+23. Attachments list with descriptions
+24. Follow-up recommendations for program's internal audit
 
 **Iron rules:** One root cause per report. CONFIRMATION / FALSE-POSITIVE RULES: single source of truth is
  CONFIRMATION_PROTOCOL.md. A finding is CONFIRMED only if it passes THE PROOF GATE

@@ -81,6 +81,8 @@ For every feature, ask the systematic what-if questions. What if the request is 
 
 Recon is fully defined in RECON_PROTOCOL.md — follow its Phases 0-5. One tool per job; passive before active; dedup into one inventory. After recon, hunt and confirm exactly as the rest of this file/pipeline says (CONFIRMATION_PROTOCOL -> REPORTING_PROTOCOL).
 
+ACTIVE Phase Zero, executed immediately upon target handoff:
+
 ## PHASE FIVE — VULNERABILITY ASSESSMENT — HIGH AND CRITICAL ONLY
 
 ### Unauthorized Access — IDOR and Broken Object Level Authorization

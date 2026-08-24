@@ -94,8 +94,6 @@ embed_skills() {
     cp "$SCRIPT_DIR/skills/DEVIL_UNIQUE.md"             "$CONFIG_DIR/"
     cp "$SCRIPT_DIR/skills/AGENTS.md"                   "$CONFIG_DIR/"
     cp "$SCRIPT_DIR/skills/CONFIRMATION_PROTOCOL.md"    "$CONFIG_DIR/"
-    cp "$SCRIPT_DIR/skills/REPORTING_PROTOCOL.md"       "$CONFIG_DIR/"
-    cp "$SCRIPT_DIR/skills/RECON_PROTOCOL.md"         "$CONFIG_DIR/"
     log "  ✅ CAVEMAN_SKILL          — Credit-saving intelligence"
     log "  ✅ DEVIL_CHAINS           — Pre-built P1 exploit chains"
     log "  ✅ DEVIL_PAYLOADS_XSS     — XSS arsenal"
@@ -127,8 +125,6 @@ write_config() {
   // BRAIN STACK — All loaded automatically
   "instructions": [
     "${CONFIG_DIR}/CONFIRMATION_PROTOCOL.md",
-    "${CONFIG_DIR}/REPORTING_PROTOCOL.md",
-    "${CONFIG_DIR}/RECON_PROTOCOL.md",
     "${BRAIN_DIR}/OC.md",
     "${BRAIN_DIR}/CLAUDE.md",
     "${BRAIN_DIR}/CLAUDE1.md"

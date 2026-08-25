@@ -49,7 +49,7 @@ $config = @"
 {
   "`$schema": "https://opencode.ai/config.json",
   "username": "ROXX",
-  "model": "anthropic/claude-sonnet-4-5",
+
   "instructions": [
     "$ConfigDir\\CONFIRMATION_PROTOCOL.md",
     "$ConfigDir\\REPORTING_PROTOCOL.md",

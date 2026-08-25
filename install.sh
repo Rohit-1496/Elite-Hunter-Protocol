@@ -122,7 +122,6 @@ write_config() {
 
   // Set your model after install by running: opencode
   // Then type: /connect   to add your API key (Gemini FREE or Anthropic)
-  "model": "anthropic/claude-sonnet-4-5",
 
   // BRAIN STACK — All loaded automatically
   "instructions": [

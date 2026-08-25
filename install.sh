@@ -96,6 +96,10 @@ embed_skills() {
     cp "$SCRIPT_DIR/skills/CONFIRMATION_PROTOCOL.md"    "$CONFIG_DIR/"
     cp "$SCRIPT_DIR/skills/REPORTING_PROTOCOL.md"       "$CONFIG_DIR/"
     cp "$SCRIPT_DIR/skills/RECON_PROTOCOL.md"         "$CONFIG_DIR/"
+    cp "$SCRIPT_DIR/skills/BRAIN_CORE.md"             "$CONFIG_DIR/"
+    log "  ✅ AGENTS.md               — Absolute override doctrine"
+    log "  ✅ PROTOCOLS              — Recon / Confirmation / Reporting"
+    log "  ✅ BRAIN_CORE             — Identity anchor (loads last)"
     log "  ✅ CAVEMAN_SKILL          — Credit-saving intelligence"
     log "  ✅ DEVIL_CHAINS           — Pre-built P1 exploit chains"
     log "  ✅ DEVIL_PAYLOADS_XSS     — XSS arsenal"
@@ -123,14 +127,22 @@ write_config() {
   // Set your model after install by running: opencode
   // Then type: /connect   to add your API key (Gemini FREE or Anthropic)
 
-  // BRAIN STACK — All loaded automatically
+  // BRAIN STACK — All loaded automatically (BRAIN_CORE last = highest priority)
   "instructions": [
+    "${CONFIG_DIR}/AGENTS.md",
     "${CONFIG_DIR}/CONFIRMATION_PROTOCOL.md",
     "${CONFIG_DIR}/REPORTING_PROTOCOL.md",
     "${CONFIG_DIR}/RECON_PROTOCOL.md",
+    "${CONFIG_DIR}/DEVIL_TACTICS.md",
+    "${CONFIG_DIR}/DEVIL_UNIQUE.md",
+    "${CONFIG_DIR}/DEVIL_CHAINS.md",
+    "${CONFIG_DIR}/DEVIL_PAYLOADS_XSS.md",
+    "${CONFIG_DIR}/DEVIL_PAYLOADS_INJECTION.md",
+    "${CONFIG_DIR}/DEVIL_PAYLOADS_AUTH_SSRF.md",
+    "${CONFIG_DIR}/DEVIL_PAYLOADS_ADVANCED.md",
     "${BRAIN_DIR}/OC.md",
     "${BRAIN_DIR}/CLAUDE.md",
-    "${BRAIN_DIR}/CLAUDE1.md"
+    "${CONFIG_DIR}/BRAIN_CORE.md"
   ],
 
   // SILENT HUNTER MODE — Zero interruptions

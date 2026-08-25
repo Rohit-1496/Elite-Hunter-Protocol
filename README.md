@@ -1,15 +1,15 @@
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,40:1a0000,100:8B0000&height=200&section=header&text=ROXX'S%20SLAVE&fontSize=60&fontColor=FF6600&animation=fadeIn&fontAlignY=40&stroke=FF4400&strokeWidth=2&desc=Autonomous%20Bug%20Bounty%20Hunting%20Intelligence&descAlignY=65&descSize=16&descColor=ff9966"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:000000,40:001a33,100:004080&height=200&section=header&text=ELITE%20HUNTER%20PROTOCOL&fontSize=60&fontColor=00FFFF&animation=fadeIn&fontAlignY=40&stroke=0080FF&strokeWidth=2&desc=Autonomous%20Bug%20Bounty%20Hunting%20Intelligence&descAlignY=65&descSize=16&descColor=66b3ff"/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=16&duration=1800&pause=500&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=850&lines=90%25+Mind.+10%25+Tools.+0%25+Mercy.+100%25+Domination.;LOCKED.+LOADED.+UNCHAINED.;Clone.+Run+install.sh.+Hunt.;All+skills+auto-embedded.+OpenCode+only." alt="Typing"/>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=16&duration=1800&pause=500&color=00FFFF&background=000000&center=true&vCenter=true&width=850&lines=90%25+Mind.+10%25+Tools.+0%25+Mercy.+100%25+Domination.;LOCKED.+LOADED.+UNCHAINED.;Clone.+Run+install.sh.+Hunt.;Zero+False+Positives.+Full+Automation." alt="Typing"/>
 
 <br/>
 
-<img src="https://img.shields.io/badge/Built_by-Mihir_Shishulkar-FF6600?style=for-the-badge&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Built_by-Rohit-00FFFF?style=for-the-badge&labelColor=000000"/>
 <img src="https://img.shields.io/badge/Runs_on-OpenCode_AI-000000?style=for-the-badge&labelColor=0d0d0d"/>
 <img src="https://img.shields.io/badge/Cost-TOTALLY_FREE-00AA00?style=for-the-badge&labelColor=0d0d0d"/>
-<img src="https://img.shields.io/badge/Mode-DEVIL-8B0000?style=for-the-badge&labelColor=0d0d0d"/>
+<img src="https://img.shields.io/badge/Mode-STEALTH-004080?style=for-the-badge&labelColor=000000"/>
 
 <br/><br/>
 
@@ -17,7 +17,6 @@
 <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white"/>
 <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
 <img src="https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white"/>
-<img src="https://img.shields.io/badge/Parrot_OS-15E0ED?style=for-the-badge&logoColor=black"/>
 
 </div>
 
@@ -29,7 +28,7 @@
 git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git && cd Elite-Hunter-Protocol && chmod +x install.sh && ./install.sh
 ```
 
-**That's it.** OpenCode installs. All brain files embed. All skills embed. Launch and hunt.
+**That's it.** OpenCode installs. All brain files embed. All skills embed. The Proof Gates engage. Launch and hunt.
 
 ---
 
@@ -56,8 +55,8 @@ git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git && cd Elite-Hu
 > Connect a **free Google Gemini key** from [aistudio.google.com/apikey](https://aistudio.google.com/apikey) — no credit card needed.
 
 ```
-OpenCode AI    →  Free (open source)
-Google Gemini  →  Free (Google AI Studio free tier)
+OpenCode AI            →  Free (open source)
+Google Gemini          →  Free (Google AI Studio free tier)
 ELITE HUNTER PROTOCOL  →  Free (this repo)
 ─────────────────────────
 Total cost: $0.00
@@ -74,6 +73,7 @@ Elite-Hunter-Protocol/
 ├── install.sh                       ← Linux / Kali / macOS one-command installer
 ├── install_windows.ps1              ← Windows PowerShell installer
 ├── requirements.txt                 ← Dependency list (reference)
+├── save_report.sh                   ← Proof Gate reporter (auto-saves CONFIRMED findings)
 │
 ├── brain/                           ← Auto-embedded to ~/
 │   ├── CLAUDE.md                    ← Primary hunting methodology
@@ -81,6 +81,9 @@ Elite-Hunter-Protocol/
 │   └── OC.md                        ← OpenCode autonomous directives
 │
 └── skills/                          ← Auto-embedded to ~/.config/opencode/
+    ├── CONFIRMATION_PROTOCOL.md     ← The Proof Gate (5 Hard Gates)
+    ├── RECON_PROTOCOL.md            ← Recon Phase 0-5 routing
+    ├── REPORTING_PROTOCOL.md        ← Single Source of Truth for Reports
     ├── CAVEMAN_SKILL.md             ← Credit-saving intelligence protocol
     ├── DEVIL_CHAINS.md              ← Pre-built P1 exploit chains
     ├── DEVIL_PAYLOADS_ADVANCED.md   ← Advanced payload library
@@ -156,15 +159,19 @@ opencode
 ## 🧠 The Brain Stack — Auto-Loaded
 
 ```
-OC.md          ← Autonomous kill mode. Self-sufficient. Zero hand-holding.
-CLAUDE.md      ← Full hunting methodology: recon → exploit → report
-CLAUDE1.md     ← Devil mind: deep chains, 500+ payloads, advanced vectors
+OC.md                  ← Autonomous kill mode. Self-sufficient. Zero hand-holding.
+CLAUDE.md              ← Full hunting methodology: recon → exploit → report
+CLAUDE1.md             ← Devil mind: deep chains, 500+ payloads, advanced vectors
 
-CAVEMAN_SKILL  ← Think before every action. One strike. Maximum yield.
-DEVIL_CHAINS   ← XSS→ATO, SSRF→RCE, SQLi→Admin — ranked P1 chains
-DEVIL_TACTICS  ← Where to look. What to hit. How to escalate.
-DEVIL_PAYLOADS ← 500+ payloads: XSS, Injection, Auth, SSRF, Advanced
-DEVIL_UNIQUE   ← Attack vectors most hunters never even check
+RECON_PROTOCOL         ← Phased methodology (Passive -> Active -> Triage)
+CONFIRMATION_PROTOCOL  ← The Proof Gate. 5 Hard rules to prevent False Positives.
+REPORTING_PROTOCOL     ← 24-section master report generation protocol.
+
+CAVEMAN_SKILL          ← Think before every action. One strike. Maximum yield.
+DEVIL_CHAINS           ← XSS→ATO, SSRF→RCE, SQLi→Admin — ranked P1 chains
+DEVIL_TACTICS          ← Where to look. What to hit. How to escalate.
+DEVIL_PAYLOADS         ← 500+ payloads: XSS, Injection, Auth, SSRF, Advanced
+DEVIL_UNIQUE           ← Attack vectors most hunters never even check
 ```
 
 All of this loads automatically into every OpenCode session. Zero config needed.
@@ -194,4 +201,4 @@ The author is not responsible for any misuse.
 
 ---
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:8B0000,40:1a0000,100:0d0d0d&height=100&section=footer&animation=fadeIn"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:004080,40:001a33,100:000000&height=100&section=footer&animation=fadeIn"/>

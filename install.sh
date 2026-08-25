@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ================================================================
-#  ROXX'S SLAVE — AUTO INSTALLER
+#  ELITE HUNTER PROTOCOL — AUTO INSTALLER
 #  Installs OpenCode + embeds all brain & skill files.
 #  One command. Ready to hunt.
 # ================================================================
@@ -115,7 +115,7 @@ write_config() {
   "\$schema": "https://opencode.ai/config.json",
 
   // ██████╗  ██████╗ ██╗  ██╗██╗  ██╗███████╗    ███████╗██╗      █████╗ ██╗   ██╗███████╗
-  // ROXX'S SLAVE — DEVIL MODE v10.0
+  // ELITE HUNTER PROTOCOL — DEVIL MODE v10.0
   // 90% Mind. 10% Tools. 0% Mercy. 100% Domination.
 
   "username": "ROXX",
@@ -160,7 +160,7 @@ cat << "DONE"
   ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝
 
 DONE
-    echo -e "${GREEN}  ROXX'S SLAVE is armed and ready.${NC}"
+    echo -e "${GREEN}  ELITE HUNTER PROTOCOL is armed and ready.${NC}"
     echo ""
     echo -e "  ${BOLD}Next step — connect your API key (FREE):${NC}"
     echo -e "  ${CYAN}  opencode${NC}    ← launch it"

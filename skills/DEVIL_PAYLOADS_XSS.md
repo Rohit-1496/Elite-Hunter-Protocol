@@ -1,5 +1,5 @@
 # DEVIL'S DEN — XSS PAYLOAD ARSENAL v1.0
-# ROXX'S SLAVE — Every XSS Variant. Every Bypass. Every Context.
+# ELITE HUNTER PROTOCOL — Every XSS Variant. Every Bypass. Every Context.
 
 ## SECTION 1: DETECTION PROBES (Test These First)
 ### Basic Detection Canaries

@@ -1,10 +1,10 @@
 # ================================================================
-#  ROXX'S SLAVE — WINDOWS INSTALLER (PowerShell Admin)
+#  ELITE HUNTER PROTOCOL — WINDOWS INSTALLER (PowerShell Admin)
 #  Installs OpenCode + embeds all brain & skill files.
 # ================================================================
 
 Write-Host @"
- ROXX'S SLAVE — WINDOWS INSTALLER
+ ELITE HUNTER PROTOCOL — WINDOWS INSTALLER
  LOCKED. LOADED. UNCHAINED.
  Installing OpenCode + Embedding all skills...
 "@ -ForegroundColor Red
@@ -70,7 +70,7 @@ Write-Host "[+] Config written ✅" -ForegroundColor Green
 # ── DONE ────────────────────────────────────────────────────
 Write-Host ""
 Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "  ROXX'S SLAVE — INSTALLATION COMPLETE" -ForegroundColor Green
+Write-Host "  ELITE HUNTER PROTOCOL — INSTALLATION COMPLETE" -ForegroundColor Green
 Write-Host "══════════════════════════════════════" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  Next: Launch OpenCode and connect your API key" -ForegroundColor White

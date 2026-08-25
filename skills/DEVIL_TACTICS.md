@@ -200,4 +200,4 @@ If any box is unchecked → improve the report before filing.
 
 ---
 
-*ROXX'S SLAVE — DEVIL TACTICS v10.0 — Strongest. Finest. No Competition. No Mercy. No Second Place.*
+*ELITE HUNTER PROTOCOL — DEVIL TACTICS v10.0 — Strongest. Finest. No Competition. No Mercy. No Second Place.*

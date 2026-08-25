@@ -26,7 +26,7 @@
 ## ⚡ One Command. Everything Ready.
 
 ```bash
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git && cd roxxs-slave && chmod +x install.sh && ./install.sh
+git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git && cd Elite-Hunter-Protocol && chmod +x install.sh && ./install.sh
 ```
 
 **That's it.** OpenCode installs. All brain files embed. All skills embed. Launch and hunt.
@@ -52,13 +52,13 @@ git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git && cd roxxs-
 
 ## 🆓 Totally Free
 
-> **ROXX'S SLAVE runs on [OpenCode AI](https://opencode.ai) — free & open source.**
+> **ELITE HUNTER PROTOCOL runs on [OpenCode AI](https://opencode.ai) — free & open source.**
 > Connect a **free Google Gemini key** from [aistudio.google.com/apikey](https://aistudio.google.com/apikey) — no credit card needed.
 
 ```
 OpenCode AI    →  Free (open source)
 Google Gemini  →  Free (Google AI Studio free tier)
-ROXX'S SLAVE  →  Free (this repo)
+ELITE HUNTER PROTOCOL  →  Free (this repo)
 ─────────────────────────
 Total cost: $0.00
 ```
@@ -70,7 +70,7 @@ After install, inside OpenCode type `/connect` → select Google Gemini → past
 ## 📂 What's Inside
 
 ```
-roxxs-slave/
+Elite-Hunter-Protocol/
 ├── install.sh                       ← Linux / Kali / macOS one-command installer
 ├── install_windows.ps1              ← Windows PowerShell installer
 ├── requirements.txt                 ← Dependency list (reference)
@@ -98,8 +98,8 @@ roxxs-slave/
 ### Kali Linux / Parrot OS / Ubuntu / Debian
 
 ```bash
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
-cd roxxs-slave
+git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git
+cd Elite-Hunter-Protocol
 chmod +x install.sh
 ./install.sh
 ```
@@ -107,8 +107,8 @@ chmod +x install.sh
 ### macOS
 
 ```bash
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
-cd roxxs-slave
+git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git
+cd Elite-Hunter-Protocol
 chmod +x install.sh
 ./install.sh
 ```
@@ -118,8 +118,8 @@ chmod +x install.sh
 ### Windows (PowerShell — Run as Administrator)
 
 ```powershell
-git clone https://github.com/mihirshishulkar-SCOPEX/roxxs-slave.git
-cd roxxs-slave
+git clone https://github.com/Rohit-1496/Elite-Hunter-Protocol.git
+cd Elite-Hunter-Protocol
 Set-ExecutionPolicy Bypass -Scope Process -Force
 .\install_windows.ps1
 ```
@@ -184,15 +184,6 @@ All of this loads automatically into every OpenCode session. Zero config needed.
 
 ---
 
-## 💰 Support the Project
-
-> No sponsors yet. If ROXX'S SLAVE helped you land a bounty — you know what to do.
-
-[![Support via PayPal](https://img.shields.io/badge/PayPal-Support_the_Project-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/MihirShishulkar)
-
-
----
-
 ## ⚠️ Legal
 
 ```
@@ -200,24 +191,6 @@ For AUTHORIZED security research and bug bounty programs ONLY.
 Only test targets you have explicit written permission to test.
 The author is not responsible for any misuse.
 ```
-
----
-
-## 👤 Built By
-
-<div align="center">
-
-**Mihir Shishulkar** — Microsoft MSRC Special Mention · HackerOne Top 10% · ICAI Critical RCE
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/mihir-shishulkar-hof-microsoft-msrc-259978239/)
-[![HackerOne](https://img.shields.io/badge/HackerOne-494649?style=for-the-badge&logo=hackerone)](https://hackerone.com/mihir1011)
-[![Bugcrowd](https://img.shields.io/badge/Bugcrowd-F26822?style=for-the-badge&logo=bugcrowd)](https://bugcrowd.com/h/mihir2004)
-[![MSRC](https://img.shields.io/badge/Microsoft_MSRC-0078D4?style=for-the-badge&logo=microsoft)](https://msrc.microsoft.com/special-mention)
-[![ScopeX](https://img.shields.io/badge/ScopeX-FF6600?style=for-the-badge)](https://mihirshishulkar.lovable.app/)
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=900&size=14&duration=3000&pause=2000&color=FF6600&background=0D0D0D&center=true&vCenter=true&width=600&lines=Find.+Exploit.+Report.+Make+it+safer.;Microsoft+MSRC+%7C+HackerOne+Top+10%25+%7C+ICAI+RCE" alt="Quote"/>
-
-</div>
 
 ---
 

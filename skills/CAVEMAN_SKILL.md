@@ -53,8 +53,8 @@ GOOD: Generate a wordlist, run ffuf/dalfox/nuclei against all endpoints simultan
 ### Rule 3: Grep Before Generating
 Never generate new content if existing content answers the question.
 Before generating a payload: grep the DEVIL_PAYLOADS files first.
-`grep -i "jwt" /home/roxx/.config/opencode/DEVIL_PAYLOADS_AUTH_SSRF.md`
-`grep -i "prototype" /home/roxx/.config/opencode/DEVIL_PAYLOADS_ADVANCED.md`
+`grep -i "jwt" ~/.config/opencode/DEVIL_PAYLOADS_AUTH_SSRF.md`
+`grep -i "prototype" ~/.config/opencode/DEVIL_PAYLOADS_ADVANCED.md`
 
 ### Rule 4: Scripts > Repetition
 If you find yourself doing the same action more than 3 times, write a script.

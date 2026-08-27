@@ -38,7 +38,7 @@ section() { echo -e "\n${CYAN}${BOLD}══════════════�
 
 # ── STEP 1: Install OpenCode ───────────────────────────────────
 install_opencode() {
-    section "STEP 1/3 — INSTALLING OPENCODE"
+    section "STEP 1/4 — INSTALLING OPENCODE"
 
     # Need Node.js for npm
     if ! command -v node &>/dev/null; then
@@ -69,7 +69,7 @@ install_opencode() {
 
 # ── STEP 2: Embed All Brain & Skill Files ─────────────────────
 embed_skills() {
-    section "STEP 2/3 — EMBEDDING BRAIN & SKILLS"
+    section "STEP 2/4 — EMBEDDING BRAIN & SKILLS"
 
     mkdir -p "$CONFIG_DIR"
 
@@ -110,9 +110,17 @@ embed_skills() {
     log "  ✅ DEVIL_UNIQUE            — Rare attack vectors"
 }
 
-# ── STEP 3: Write OpenCode Config ─────────────────────────────
+# ── STEP 3: Install JS/SourceMap Dependencies ────────────────────
+install_js_deps() {
+    section "STEP 3/4 — INSTALLING JS/SOURCEMAP DEPENDENCIES"
+    log "Installing source-map for JS recovery..."
+    npm install -g source-map 2>/dev/null || warn "source-map install failed — JS recovery may not work"
+    log "source-map installed ✅"
+}
+
+# ── STEP 4: Write OpenCode Config ─────────────────────────────
 write_config() {
-    section "STEP 3/3 — WRITING CONFIG"
+    section "STEP 4/4 — WRITING CONFIG"
 
     cat > "$CONFIG_DIR/opencode.jsonc" << CONFIG
 {
@@ -188,5 +196,6 @@ DONE
 banner
 install_opencode
 embed_skills
+install_js_deps
 write_config
 print_done

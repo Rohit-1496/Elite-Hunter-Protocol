@@ -288,6 +288,23 @@ Analyze all hardcoded values: API keys embedded for frontend convenience, intern
 
 ---
 
+### WHEN YOU SEE ANY JAVASCRIPT FILE
+
+- Download immediately. Check for .map reference (//# sourceMappingURL=)
+- If .map exists → download + recover original source via hunt.py
+- Run hunt.py extraction on BOTH minified and recovered
+- Generate per-file report. Rank by priority.
+- Any secret/endpoint/sink → immediate hypothesis generation → test next
+
+### WHEN YOU SEE ANY SOURCE MAP FILE
+
+- Full recovery = free code review. Treat as TIER 0 asset.
+- Search recovered source for: auth logic, permission checks, API calls, crypto
+- Compare minified vs recovered → find dead code, hidden branches, debug endpoints
+- Any finding in recovered source not in minified = HIGH PRIORITY (hidden logic)
+
+---
+
 ### WHEN YOU SEE ANY CLOUD OR INFRASTRUCTURE SURFACE
 
 **Exposed without authentication — immediate Critical:**

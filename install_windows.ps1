@@ -51,12 +51,21 @@ $config = @"
   "username": "ROXX",
 
   "instructions": [
+    "$ConfigDir\\AGENTS.md",
     "$ConfigDir\\CONFIRMATION_PROTOCOL.md",
     "$ConfigDir\\REPORTING_PROTOCOL.md",
     "$ConfigDir\\RECON_PROTOCOL.md",
+    "$ConfigDir\\DEVIL_TACTICS.md",
+    "$ConfigDir\\DEVIL_UNIQUE.md",
+    "$ConfigDir\\DEVIL_CHAINS.md",
+    "$ConfigDir\\DEVIL_PAYLOADS_XSS.md",
+    "$ConfigDir\\DEVIL_PAYLOADS_INJECTION.md",
+    "$ConfigDir\\DEVIL_PAYLOADS_AUTH_SSRF.md",
+    "$ConfigDir\\DEVIL_PAYLOADS_ADVANCED.md",
+    "$ConfigDir\\CAVEMAN_SKILL.md",
     "$BrainDir\\OC.md",
     "$BrainDir\\CLAUDE.md",
-    "$BrainDir\\CLAUDE1.md"
+    "$ConfigDir\\BRAIN_CORE.md"
   ],
   "autoapprove": true,
   "permission": "allow",

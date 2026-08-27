@@ -19,7 +19,8 @@ set -euo pipefail
 # ---- config -----------------------------------------------------------------
 THRESHOLD=85
 MIN_EVIDENCE=2
-DEST="/mnt/c/Users/rohit/Downloads"
+DEST="${HUNTER_REPORT_DEST:-$HOME/Downloads}"
+# Valid vuln_class values: SQLi|XSS|SSRF|IDOR|SSTI|RCE|XXE|AUTH|LOGIC|UPLOAD|OTHER|JS_SECRET|JS_ENDPOINT|JS_SINK|JS_XSS_VECTOR
 # -----------------------------------------------------------------------------
 
 REPORT="${1:-}"
